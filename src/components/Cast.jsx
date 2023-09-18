@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 // import Loading from '../components/Loading';
 // import ErrorView from '../components/ErrorView';
-import css from '../pages/Movie.module.css';
+import css from '../components/Cast.module.css';
 import { castRequest } from '../api/API_KEY';
 // import { KEY_API, BASE_URL, MOVIE_DETAILS } from '../api/API_KEY';
 
@@ -35,22 +35,26 @@ export default function Cast() {
           <ul>
             {castInfo.map(({ id, character, name, profile_path }) => {
               return (
-                <li key={id}>
+                <li className={css.cast_list} key={id}>
                   {profile_path ? (
                     <img
                       src={'https://image.tmdb.org/t/p/w500' + profile_path}
                       alt={name}
-                      width={200}
+                      height={150}
+                      className={css.cast_img}
                     ></img>
                   ) : (
-                    <p>Image do not found</p>
+                    <p className={css.cast_info}>Image do not found</p>
                   )}
-                  <p>
-                    <b>Character: </b>
+                  <p className={css.cast_info}>
+                    <b className={css.cast_headers}>Character:</b>
+                    <br></br>
                     {character}
                   </p>
-                  <p>
-                    <b>Name:</b>
+                  <br></br>
+                  <p className={css.cast_info}>
+                    <b className={css.cast_headers}>Name:</b>
+                    <br></br>
                     {name}
                   </p>
                 </li>

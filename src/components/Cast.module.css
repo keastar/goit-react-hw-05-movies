@@ -1,0 +1,27 @@
+.cast_list {
+    display: flex;
+    flex-direction: row;
+    padding-left: 20px;
+    align-items: center;
+}
+
+.cast_img {
+    display: block;
+    height: 150px;
+    width: auto;
+    padding-bottom: 20px;
+}
+
+.cast_info {
+    display: inline-block;
+    font-size: 12px;
+    padding-left: 20px;
+}
+.cast_info:first-child {
+    padding-left: 0;
+}
+
+
+.cast_headers {
+    font-size: 15px;
+}
