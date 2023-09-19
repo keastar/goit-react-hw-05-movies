@@ -27,4 +27,15 @@ export async function castRequest(movieId) {
   }
 }
 
+export async function reviewRequest(movieId) {
+  try {
+    const response = await axios.get(
+      `${BASE_URL}${MOVIE_DETAILS}${movieId}/reviews?api_key=${KEY_API}`
+    );
+    return response;
+  } catch (error) {
+    console.log('Smth wrong with App fetch', error);
+  }
+}
+
 export { KEY_API, BASE_URL, TREND_DAY, MOVIE_DETAILS };
