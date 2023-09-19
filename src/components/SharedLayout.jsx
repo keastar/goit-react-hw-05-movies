@@ -16,7 +16,13 @@ export default function SharedLayout() {
       <main>
         <Outlet />
       </main>
-      <footer>Footer</footer>
+      <footer
+        style={{
+          paddingLeft: '20px',
+        }}
+      >
+        Footer
+      </footer>
     </div>
   );
 }
