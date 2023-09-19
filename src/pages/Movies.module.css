@@ -5,7 +5,7 @@
     position: sticky;
     z-index: 1100;
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
     min-height: 34px;
     padding-right: 24px;
@@ -68,4 +68,10 @@
 
 .page_this {
     padding-left: 20px;
+}
+
+.ul {
+    list-style-type: none;
+    padding-left: 25px;
+    font-size: 15px;
 }
