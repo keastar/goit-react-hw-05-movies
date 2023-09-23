@@ -1,5 +1,7 @@
 // import { KEY_API, BASE_URL, MOVIE_DETAILS, movieRequest } from '../api/API_KEY';
 import React, { useState, useEffect } from 'react';
+import { BackLink } from '../components/BackLink';
+import { useLocation } from 'react-router-dom';
 // import Loading from '../components/Loading';
 // import ErrorView from '../components/ErrorView';
 import css from '../pages/Movie.module.css';
@@ -13,6 +15,8 @@ export default function Movie() {
   const { movieId } = useParams();
   console.log(movieId);
   const [movieInfo, setMovieInfo] = useState([]);
+  const location = useLocation();
+  const backLinkHref = location.state?.from ?? '/';
   // const [genres, setGenres] = useState([]);
   // const [original_title, setOriginal_title] = useState('');
   // const [overview, setOverview] = useState('');
@@ -41,6 +45,7 @@ export default function Movie() {
   return (
     <>
       <div className={css.movie}>
+        <BackLink to={backLinkHref}>Back</BackLink>
         {/* {isLoading && <Loading />} */}
         {!isLoading && (
           <AboutOneMovie movieInfo={movieInfo} className={css.movie_details} />
