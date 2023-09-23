@@ -17,7 +17,7 @@ export default function Movie() {
   console.log(movieId);
   const [movieInfo, setMovieInfo] = useState([]);
   const location = useLocation();
-  const backLinkLocationRef = useRef(location.state?.from ?? '/');
+  const backLinkLocationRef = useRef(location.state?.from);
   // const [genres, setGenres] = useState([]);
   // const [original_title, setOriginal_title] = useState('');
   // const [overview, setOverview] = useState('');
@@ -46,7 +46,7 @@ export default function Movie() {
   return (
     <>
       <div className={css.movie}>
-        <BackLink to={backLinkLocationRef.current}>Back</BackLink>
+        <BackLink to={backLinkLocationRef.current ?? '/'}>Back</BackLink>
         {/* {isLoading && <Loading />} */}
         {!isLoading && (
           <AboutOneMovie movieInfo={movieInfo} className={css.movie_details} />
