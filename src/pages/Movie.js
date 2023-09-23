@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { BackLink } from '../components/BackLink';
 import { useLocation } from 'react-router-dom';
+import { Suspense } from 'react';
 // import Loading from '../components/Loading';
 // import ErrorView from '../components/ErrorView';
 import css from '../pages/Movie.module.css';
@@ -61,7 +62,9 @@ export default function Movie() {
             <Link to={`reviews`}> Reviews </Link>
           </li>
         </ul>
-        <Outlet />
+        <Suspense fallback={<div>Loading page...</div>}>
+          <Outlet />
+        </Suspense>
         !MOVIE PAGE!{movieId}
       </div>
     </>

@@ -1,15 +1,13 @@
-// import React, { useEffect, useState } from 'react';
-// import { KEY_API, BASE_URL } from '../api/API_KEY';
 import { NavLink, Route, Routes } from 'react-router-dom';
-import Home from 'pages/Home';
-import Movies from 'pages/Movies';
-import Movie from 'pages/Movie';
-import Cast from './Cast';
-import Reviews from './Reviews';
 import css from './App.module.css';
-// import Container from './Container';
-// import { fetchMovies } from '../api/api';
+import { lazy } from 'react';
 import SharedLayout from './SharedLayout';
+
+const Home = lazy(() => import('../pages/Home'));
+const Movies = lazy(() => import('../pages/Movies'));
+const Movie = lazy(() => import('../pages/Movie'));
+const Cast = lazy(() => import('../components/Cast'));
+const Reviews = lazy(() => import('../components/Reviews'));
 
 export default function App() {
   // const [films, setFilms] = useState([]);

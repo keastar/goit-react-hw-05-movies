@@ -1,4 +1,5 @@
 import { Outlet } from 'react-router-dom';
+import { Suspense } from 'react';
 
 export default function SharedLayout() {
   return (
@@ -14,7 +15,9 @@ export default function SharedLayout() {
         </ul> */}
       </header>
       <main>
-        <Outlet />
+        <Suspense fallback={<div>Loading page...</div>}>
+          <Outlet />
+        </Suspense>
       </main>
       <footer
         style={{
