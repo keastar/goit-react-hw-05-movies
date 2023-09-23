@@ -1,8 +1,8 @@
 // import { KEY_API, BASE_URL, MOVIE_DETAILS, movieRequest } from '../api/API_KEY';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { BackLink } from '../components/BackLink';
 import { useLocation } from 'react-router-dom';
-import { Suspense } from 'react';
+// import { Suspense } from 'react';
 // import Loading from '../components/Loading';
 // import ErrorView from '../components/ErrorView';
 import css from '../pages/Movie.module.css';
@@ -17,7 +17,7 @@ export default function Movie() {
   console.log(movieId);
   const [movieInfo, setMovieInfo] = useState([]);
   const location = useLocation();
-  const backLinkHref = location.state?.from ?? '/';
+  const backLinkLocationRef = useRef(location.state?.from ?? '/');
   // const [genres, setGenres] = useState([]);
   // const [original_title, setOriginal_title] = useState('');
   // const [overview, setOverview] = useState('');
@@ -46,7 +46,7 @@ export default function Movie() {
   return (
     <>
       <div className={css.movie}>
-        <BackLink to={backLinkHref}>Back</BackLink>
+        <BackLink to={backLinkLocationRef.current}>Back</BackLink>
         {/* {isLoading && <Loading />} */}
         {!isLoading && (
           <AboutOneMovie movieInfo={movieInfo} className={css.movie_details} />
@@ -62,9 +62,9 @@ export default function Movie() {
             <Link to={`reviews`}> Reviews </Link>
           </li>
         </ul>
-        <Suspense fallback={<div>Loading page...</div>}>
-          <Outlet />
-        </Suspense>
+        {/* <Suspense fallback={<div>Loading page...</div>}> */}
+        <Outlet />
+        {/* </Suspense> */}
         !MOVIE PAGE!{movieId}
       </div>
     </>
